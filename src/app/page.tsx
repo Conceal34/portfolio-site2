@@ -5,16 +5,16 @@ import ProjectCard from "./components/ProjectCard";
 export default async function Home() {
   const projects = [{
     id: "1",
-    proj_img: { prof_photo },
+    proj_img: prof_photo,
     proj_name: "akjsdghbj",
     description: "nmcxbvkujsdhbfkjnklasndklnkcjlxz",
     project_link: "Link"
   },
   {
     id: "2",
-    proj_img: { prof_photo },
+    proj_img: prof_photo,
     proj_name: "akjsdghbj",
-    description: "nmcxbvkujsdhbfkjnklasndklnkcjlxz",
+    description: "nmcxbvkujsdhbfkjnklasndklnkcjasdjkhvbsfcxjhkbujsakbdfkjhscdvbhjksadvfkhjabvskhjuvsdkhjcvbukysahdgfhjskdcbvkhjasdfvjshkdcbvhjksdcgvklxz",
     project_link: "Link"
   }]
 
@@ -31,9 +31,9 @@ export default async function Home() {
           ABout Section
         </div>
 
-        <div className="border-2 bg-[#D3CAB3] rounded-3xl p-8 lg:row-span-full">
+        <div className="border-2 bg-[#D3CAB3] rounded-3xl p-4 lg:row-span-full">
           <div>Projects</div>
-          <div className="p-2 flex flex-col gap-2">
+          <div className="flex flex-col gap-4 overflow-y-auto h-full">
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}
