@@ -8,7 +8,7 @@ import TechTicker from './components/TechTicker'
 import prof_photo from '../assets/prof_photo.jpeg';
 import gym_proj from '../assets/admin-client.png';
 import ecommerce_proj from '../assets/ecommerce.png';
-// import anpr_proj from '../assets/anpr.png';
+import anpr_proj from '../assets/anpr.jpg';
 import flood_proj from '../assets/flood.png';
 
 export default async function Home() {
@@ -29,7 +29,7 @@ export default async function Home() {
     },
     {
       id: "3",
-      proj_img: prof_photo,
+      proj_img: anpr_proj,
       proj_name: "ANPR System",
       description: "Automated Number Plate Recognition system integrating YOLO object detection and PaddleOCR. Achieved 80% accuracy across diverse lighting and weather conditions with 20% improvement in data throughput over manual methods.",
       project_link: "https://github.com/Conceal34/ANPR"
