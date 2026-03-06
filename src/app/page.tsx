@@ -60,7 +60,7 @@ export default async function Home() {
         {/* Hero section */}
         <div className="bg-[#D3CAB3] rounded-3xl p-8 lg:col-start-2 lg:row-start-1 flex flex-col justify-between relative overflow-hidden">
           <div className="text-2xl lg:text-3xl xl:text-4xl font-playfair leading-tight relative z-10">
-            Let's <span className="italic font-bold">CREATE</span> some tech.
+            Let's <span className="italic font-bold">BUILD</span> some tech.
           </div>
           <div className="flex justify-end">
             <div className="font-mono text-xs text-[#1A1A1A]/40 flex flex-col gap-1.5 text-right">
