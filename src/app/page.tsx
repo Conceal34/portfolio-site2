@@ -1,23 +1,28 @@
 import Image from "next/image";
-import prof_photo from '../assets/prof_photo.jpeg';
 import ProjectCard from "./components/ProjectCard";
 import Link from "next/link";
 import BlogPost from "./components/Blogpost";
 import TechTicker from './components/TechTicker'
 
+// photos
+import prof_photo from '../assets/prof_photo.jpeg';
+import gym_proj from '../assets/admin-client.png';
+import ecommerce_proj from '../assets/ecommerce.png';
+// import anpr_proj from '../assets/anpr.png';
+import flood_proj from '../assets/flood.png';
 
 export default async function Home() {
   const projects = [
     {
       id: "1",
-      proj_img: prof_photo,
+      proj_img: gym_proj,
       proj_name: "Gym Management System",
       description: "Full-stack SaaS-style fitness management platform for personal trainers. Features real-time chat, Google Calendar API integration, role-based authentication, dynamic workout planner, performance charts with E-1RM calculator, and meal plan management.",
       project_link: "https://github.com/Conceal34/personal-trainer-next"
     },
     {
       id: "2",
-      proj_img: prof_photo,
+      proj_img: ecommerce_proj,
       proj_name: "E-Commerce Platform",
       description: "Full-stack e-commerce platform with separate Admin, Seller, and Buyer roles. Designed in Figma before implementation. Built with Node.js, Express and EJS templating with raw PostgreSQL queries. Features bcrypt authentication, product management, cart and order functionality.",
       project_link: "https://github.com/Conceal34/Ecommerce"
@@ -31,7 +36,7 @@ export default async function Home() {
     },
     {
       id: "4",
-      proj_img: prof_photo,
+      proj_img: flood_proj,
       proj_name: "Flood Detection & Severity Mapping — IEEE Research",
       description: "IEEE accepted research on satellite-based flood detection using deep learning. Trained a U-Net CNN on Sentinel-1 SAR imagery achieving 83% recall optimized for disaster response. Generated probabilistic severity maps for the Ganga floodplain.",
       project_link: "https://github.com/Conceal34/Flood-Detection-Severity-Mapping"
@@ -92,7 +97,9 @@ export default async function Home() {
         <div className="flex flex-col bg-[#D3CAB3] rounded-3xl p-4 lg:row-span-full lg:min-h-0">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-base xl:text-xl font-playfair font-bold">Projects</h1>
-            <span className="text-xs">↗</span>
+            <Link className="text-xs" href="/project" target="_blank" rel="noopener noreferrer">
+              ↗
+            </Link>
           </div>
           <div className="h-px bg-[#1A1A1A]/20 mb-6" />
           <div className="flex flex-col gap-4 lg:overflow-y-auto no-scrollbar flex-1 lg:min-h-0">
