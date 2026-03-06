@@ -58,21 +58,34 @@ export default async function Home() {
         </div>
 
         {/* Hero section */}
-        <div className="bg-[#D3CAB3] rounded-3xl p-8 lg:col-start-2 lg:row-start-1 flex flex-col justify-between">
-          <div className="text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-playfair leading-tight">
-            Let's <span className="italic font-normal">CREATE</span> some tech.
+        <div className="bg-[#D3CAB3] rounded-3xl p-8 lg:col-start-2 lg:row-start-1 flex flex-col justify-between relative overflow-hidden">
+          <div className="text-2xl lg:text-3xl xl:text-4xl font-playfair leading-tight relative z-10">
+            Let's <span className="italic font-bold">CREATE</span> some tech.
           </div>
-          <div className="text-sm tracking-widest uppercase text-end text-[#1A1A1A]/60">Vinner</div>
+          <div className="flex justify-end">
+            <div className="font-mono text-xs text-[#1A1A1A]/40 flex flex-col gap-1.5 text-right">
+              <span><span className="text-[#4C4B40]/60">$</span> docker build -t vinner .</span>
+              <span><span className="text-[#4C4B40]/60">$</span> git push origin main</span>
+              <span><span className="text-[#4C4B40]/60">$</span> npm run deploy<span className="animate-pulse">▌</span></span>
+            </div>
+          </div>
+          <div className="text-xs tracking-widest uppercase text-[#1A1A1A]/40 relative z-10">Vinner</div>
         </div>
 
         {/* About section */}
-        <div className="bg-[#4C4B40] text-[#E8E4D9] rounded-3xl p-6 md:col-span-2 flex flex-col justify-between">
-          <p className="text-xs tracking-widest uppercase text-[#E8E4D9]/50 mb-3">About</p>
-          <p className="font-playfair text-base lg:text-lg xl:text-xl 2xl:text-2xl leading-snug">
-            MCA student at Christ University, Delhi NCR.
-            I build end-to-end applications from Figma to cloud-ready systems. Currently transitioning into DevOps — containerizing apps, building CI/CD pipelines, and learning AWS.
+        <div className="bg-[#4C4B40] text-[#E8E4D9] rounded-3xl p-6 md:col-span-2 flex flex-col gap-3">
+          <p className="text-xs tracking-widest uppercase text-[#E8E4D9]/40">About</p>
+          <div className="h-px bg-[#E8E4D9]/10" />
+          <p className="font-playfair text-base lg:text-lg xl:text-xl 2xl:text-2xl leading-relaxed flex-1">
+            I build end-to-end web applications
+            and research satellite-based disaster detection.
+            Next.js by day. Docker and AWS by night.
           </p>
-          <p className="text-xs text-[#E8E4D9]/60 mt-3">Delhi, India · Open to work</p>
+          <div className="h-px bg-[#E8E4D9]/10" />
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-[#E8E4D9]/50">Delhi, India · Open to work</p>
+            <span className="text-xs tracking-widest uppercase text-[#E8E4D9]/30 border border-[#E8E4D9]/20 rounded-full px-3 py-1">MCA · Christ University</span>
+          </div>
         </div>
 
         {/* Projects section */}
@@ -81,6 +94,7 @@ export default async function Home() {
             <h1 className="text-base xl:text-xl font-playfair font-bold">Projects</h1>
             <span className="text-xs">↗</span>
           </div>
+          <div className="h-px bg-[#1A1A1A]/20 mb-6" />
           <div className="flex flex-col gap-4 lg:overflow-y-auto no-scrollbar flex-1 lg:min-h-0">
             {projects.map((project, index) => (
               <div key={project.id} className={index >= 5 ? "hidden lg:block" : "block"}>
@@ -101,28 +115,28 @@ export default async function Home() {
 
           <div className="flex flex-col gap-3">
             <div className="flex items-start gap-3">
-              <span className="text-xl">🐋</span>
+              <div className="w-2 h-2 rounded-full bg-[#4C4B40] mt-1.5 shrink-0" />
               <div>
                 <p className="font-bold text-xs xl:text-sm">Docker</p>
                 <p className="text-xs text-[#1A1A1A]/60">Containerizing personal projects</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-xl">⚙️</span>
+              <div className="w-2 h-2 rounded-full bg-[#4C4B40] mt-1.5 shrink-0" />
               <div>
                 <p className="font-bold text-sm">GitHub Actions</p>
                 <p className="text-xs text-[#1A1A1A]/60">Building CI/CD pipelines</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-xl">☁️</span>
+              <div className="w-2 h-2 rounded-full bg-[#4C4B40] mt-1.5 shrink-0" />
               <div>
                 <p className="font-bold text-sm">AWS</p>
                 <p className="text-xs text-[#1A1A1A]/60">Cloud Practitioner prep</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-xl">🐧</span>
+              <div className="w-2 h-2 rounded-full bg-[#4C4B40] mt-1.5 shrink-0" />
               <div>
                 <p className="font-bold text-sm">Linux</p>
                 <p className="text-xs text-[#1A1A1A]/60">Shell scripting & server management</p>
@@ -136,7 +150,7 @@ export default async function Home() {
           <div className="flex flex-col gap-1">
             <p className="text-xs text-[#1A1A1A]/50 tracking-widest uppercase">Roadmap</p>
             <p className="text-sm font-bold">Tutedude DevOps Course</p>
-            <p className="text-xs text-[#1A1A1A]/60 mt-1">🎯 Goal: DevOps Internship · Late 2025</p>
+            <p className="text-xs text-[#1A1A1A]/60 mt-1">🎯 Goal: DevOps Internship · Late 2026</p>
           </div>
 
           <div className="h-px bg-[#1A1A1A]/20" />
