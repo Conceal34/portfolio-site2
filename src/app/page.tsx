@@ -97,7 +97,7 @@ export default async function Home() {
         <div className="flex flex-col bg-[#D3CAB3] rounded-3xl p-4 lg:row-span-full lg:min-h-0">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-base xl:text-xl font-playfair font-bold">Projects</h1>
-            <Link className="text-xs" href="/project" target="_blank" rel="noopener noreferrer">
+            <Link className="text-xs" href="https://github.com/Conceal34" target="_blank" rel="noopener noreferrer">
               ↗
             </Link>
           </div>
