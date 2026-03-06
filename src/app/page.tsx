@@ -57,11 +57,6 @@ export default async function Home() {
     <div className="flex flex-col gap-2 lg:flex-1 lg:min-h-0">
       <main className="lg:w-full lg:flex-1 lg:min-h-0 grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:gap-4">
 
-        {/* Photo card */}
-        <div className="relative rounded-3xl overflow-hidden h-64 lg:h-full lg:col-start-3">
-          <Image src={prof_photo} alt="Vinner's photo" className="object-cover w-full h-full object-top" fill />
-        </div>
-
         {/* Hero section */}
         <div className="bg-[#D3CAB3] rounded-3xl p-8 lg:col-start-2 lg:row-start-1 flex flex-col justify-between relative overflow-hidden">
           <div className="text-2xl lg:text-3xl xl:text-4xl font-playfair leading-tight relative z-10">
@@ -76,6 +71,12 @@ export default async function Home() {
           </div>
           <div className="text-xs tracking-widest uppercase text-[#1A1A1A]/40 relative z-10">Vinner</div>
         </div>
+
+        {/* Photo card */}
+        <div className="relative rounded-3xl overflow-hidden h-64 lg:h-full lg:col-start-3">
+          <Image src={prof_photo} alt="Vinner's photo" className="object-cover w-full h-full object-top" fill />
+        </div>
+
 
         {/* About section */}
         <div className="bg-[#4C4B40] text-[#E8E4D9] rounded-3xl p-6 md:col-span-2 flex flex-col gap-3">
@@ -93,28 +94,7 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Projects section */}
-        <div className="flex flex-col bg-[#D3CAB3] rounded-3xl p-4 lg:row-span-full lg:min-h-0">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-base xl:text-xl font-playfair font-bold">Projects</h1>
-            <Link className="text-xs" href="https://github.com/Conceal34" target="_blank" rel="noopener noreferrer">
-              ↗
-            </Link>
-          </div>
-          <div className="h-px bg-[#1A1A1A]/20 mb-6" />
-          <div className="flex flex-col gap-4 lg:overflow-y-auto no-scrollbar flex-1 lg:min-h-0">
-            {projects.map((project, index) => (
-              <div key={project.id} className={index >= 5 ? "hidden lg:block" : "block"}>
-                <ProjectCard {...project} />
-              </div>
-            ))}
-          </div>
-          <Link href={'/project'} className="lg:hidden mt-4 text-[#1A1A1A] font-bold underline text-sm">
-            View All Projects
-          </Link>
-        </div>
-
-        {/* Currently Learning section */}
+        {/* Currently Learning section later make it  a blog section */}
         <div className="bg-[#D3CAB3] rounded-3xl p-6 lg:col-start-4 lg:row-span-full flex flex-col gap-4 lg:min-h-0 lg:overflow-y-auto no-scrollbar">
 
           <h1 className="text-base xl:text-xl font-playfair font-bold">Currently Learning</h1>
@@ -168,6 +148,25 @@ export default async function Home() {
           </div>
 
         </div>
+
+        {/* Projects section */}
+        <div className="flex flex-col bg-[#D3CAB3] rounded-3xl p-4 lg:row-span-full lg:min-h-0">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-base xl:text-xl font-playfair font-bold">Projects</h1>
+            <Link className="text-xs" href="https://github.com/Conceal34" target="_blank" rel="noopener noreferrer">
+              ↗
+            </Link>
+          </div>
+          <div className="h-px bg-[#1A1A1A]/20 mb-6" />
+          <div className="flex flex-col gap-4 lg:overflow-y-auto no-scrollbar flex-1 lg:min-h-0">
+            {projects.map((project, index) => (
+              <div key={project.id} className={index >= 5 ? "hidden lg:block" : "block"}>
+                <ProjectCard {...project} />
+              </div>
+            ))}
+          </div>
+        </div>
+
       </main>
 
       {/* Footer */}
