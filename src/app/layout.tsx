@@ -4,14 +4,14 @@ import type { Metadata } from "next";
 
 import { Playfair_Display, DM_Sans } from 'next/font/google'
 
-const playfair = Playfair_Display({ 
-  subsets: ['latin'], 
-  variable: '--font-playfair' 
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair'
 })
 
-const dmSans = DM_Sans({ 
-  subsets: ['latin'], 
-  variable: '--font-sans' 
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-sans'
 })
 
 export const metadata: Metadata = {
@@ -25,10 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`antialiased p-2 lg:p-6 flex flex-col gap-4 overflow-x-hidden`}
-      >
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
+      <body className={`${playfair.variable} ${dmSans.variable} antialiased p-2 lg:p-3 xl:p-4 2xl:p-6 flex flex-col gap-2 lg:overflow-hidden lg:h-screen`}>
         <Navbar />
         {children}
       </body>
