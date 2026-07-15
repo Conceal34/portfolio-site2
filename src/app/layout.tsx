@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar"
 import { ClientProviders } from "./components/ClientProviders";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from "next";
 
 import { Playfair_Display, DM_Sans } from 'next/font/google'
@@ -73,6 +74,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </ClientProviders>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       </body>
     </html>
   );
