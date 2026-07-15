@@ -66,7 +66,7 @@ export default function ContactDrawer({ isOpen, onClose }: ContactDrawerProps) {
                 <div className="flex items-center gap-3">
                   <Mail size={20} />
                   <span className="font-sans font-semibold tracking-wider text-sm uppercase">
-                    {copied ? "Copied!" : "vinnerhooda@example.com"}
+                    {copied ? "Copied!" : "vinnerhooda@gmail.com"}
                   </span>
                 </div>
                 <Copy size={16} className={`transition-opacity ${copied ? 'opacity-0' : 'opacity-50'}`} />
