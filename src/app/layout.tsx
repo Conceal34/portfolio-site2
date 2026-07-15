@@ -18,6 +18,9 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Vinner Hooda — Full-Stack Developer",
   description: "Portfolio of Vinner Hooda, a full-stack developer building with React, Next.js, Node.js, and PostgreSQL, and researching satellite-based disaster detection.",
+  verification: {
+    google: "UG97Fbz_QLA2tA_1JzIR2kaYWoRl_EWrWVZHlhhFjYA",
+  },
 };
 
 export default function RootLayout({
