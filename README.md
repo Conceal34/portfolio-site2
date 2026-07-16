@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vinner Hooda — Full-Stack Developer Portfolio
 
-## Getting Started
+A premium, highly-optimized developer portfolio built to showcase full-stack engineering projects, research, and technical skills. Designed with a focus on typography, sleek micro-interactions, and a flawless user experience across both Light and Dark modes.
 
-First, run the development server:
+![Portfolio Preview](./src/assets/homepage_light_mode_shade.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Live Demo
+**[vinner.dev](https://vinner.dev)** *(or insert your Netlify link here if different)*
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
+- **Next-Gen Tech Stack**: Built with Next.js App Router (React 19) for lightning-fast server-side rendering and routing.
+- **Premium UI/UX**: Crafted with Tailwind CSS v4, featuring a carefully selected beige and charcoal color palette that gives a high-end, tactile feel.
+- **Flawless Dark Mode**: Seamless, flash-free toggling between Light and Dark mode using `next-themes`, with custom adaptive color contrast.
+- **Fluid Animations**: Page transitions, hover effects, and a sliding contact drawer powered by `framer-motion`.
+- **Search Engine Optimized**: Dynamically generated `sitemap.xml`, `robots.txt`, and Next.js Metadata API for maximum visibility.
+- **Built-in Analytics**: Integrated with highly-optimized Google Analytics (`@next/third-parties`) to track visitor engagement.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Built With
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Deployment:** [Netlify](https://www.netlify.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
+- `src/app/page.tsx` - The main landing page featuring the hero section, roadmap, and featured learning.
+- `src/app/project/page.tsx` - The dedicated Projects Archive with dual grid/list views and category filtering.
+- `src/app/components/` - Reusable UI components (Navbar, ProjectCard, ContactDrawer, TechTicker).
+- `src/app/layout.tsx` - Global layout configuring custom Google Fonts (Playfair Display & DM Sans) and SEO metadata.
 
-## Learn More
+## 💻 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+To run this project locally, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Conceal34/portfolio-site2.git
+   cd portfolio-site2
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Set up Environment Variables**
+   Create a `.env.local` file in the root directory and add your Google Analytics tracking ID (optional):
+   ```bash
+   NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+*Designed and built by [Vinner Hooda](https://github.com/Conceal34).*
