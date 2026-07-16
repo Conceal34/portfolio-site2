@@ -5,7 +5,7 @@ A premium, highly-optimized developer portfolio built to showcase full-stack eng
 ![Portfolio Preview](./src/assets/homepage_light_mode_shade.png)
 
 ## 🚀 Live Demo
-**[vinner.dev](https://vinner.dev)** *(or insert your Netlify link here if different)*
+**[vinner-portfolio](https://vinner-portfolio.netlify.app/)** 
 
 ## ✨ Key Features
 - **Next-Gen Tech Stack**: Built with Next.js App Router (React 19) for lightning-fast server-side rendering and routing.
