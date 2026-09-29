@@ -27,7 +27,7 @@ const projectsList = [
     proj_name: "Gym Management System",
     description: "Full-stack SaaS-style fitness management platform for personal trainers. Features real-time chat, Google Calendar API integration, role-based authentication, dynamic workout planner, performance charts with E-1RM calculator, and meal plan management.",
     project_link: "https://github.com/Conceal34/personal-trainer-next",
-    live_link: "https://vinner-gym.netlify.app",
+    live_link: "https://gym.vinner.uk",
     tags: ["Next.js", "React", "TypeScript", "Google Calendar API", "Tailwind"],
     category: "Full-Stack"
   },
@@ -84,15 +84,15 @@ export default function ProjectPage() {
 
   return (
     <div className={`flex flex-col lg:flex-1 lg:min-h-0 bg-[#D3CAB3] dark:bg-[#1C1C1A] text-[#1A1A1A] dark:text-[#E8E4D9] rounded-3xl border border-[#1A1A1A]/10 dark:border-white/10 lg:overflow-hidden h-full transition-all duration-500 ease-in-out ${
-      isScrolled ? "p-5 gap-3" : "p-6 lg:p-8 gap-5"
+      isScrolled ? "p-4 gap-2" : "p-5 lg:p-6 gap-4"
     }`}>
       {/* Unified Header & Filters Row */}
-      <div className={`flex flex-wrap items-center justify-between gap-4 w-full transition-all duration-500 ease-in-out ${
-        isScrolled ? "pb-0.5" : "pb-1"
+      <div className={`flex flex-wrap items-center justify-between gap-3 w-full transition-all duration-500 ease-in-out ${
+        isScrolled ? "pb-0" : "pb-0.5"
       }`}>
-         <div className="flex flex-wrap items-center gap-4 xl:gap-6">
+         <div className="flex flex-wrap items-center gap-3 xl:gap-4">
            <h1 className={`font-playfair text-[#1A1A1A] dark:text-[#E8E4D9] leading-tight font-bold shrink-0 transition-all duration-500 ease-in-out ${
-             isScrolled ? "text-lg xl:text-xl" : "text-xl md:text-2xl xl:text-3xl"
+             isScrolled ? "text-base xl:text-lg" : "text-lg md:text-xl xl:text-2xl"
            }`}>
              Projects <span className="italic font-bold text-[#4C4B40] dark:text-white">ARCHIVE</span>
            </h1>
@@ -102,7 +102,7 @@ export default function ProjectPage() {
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`text-[10px] xl:text-xs font-sans tracking-wider uppercase px-3 py-1.5 md:px-4 md:py-2 rounded-full border transition-all duration-300 cursor-pointer ${
+                  className={`text-[9px] xl:text-[10px] font-sans tracking-wider uppercase px-3 py-1.5 rounded-full border transition-all duration-300 cursor-pointer ${
                     filter === cat
                       ? "bg-[#1A1A1A] dark:bg-[#E8E4D9] text-[#D3CAB3] dark:text-[#1C1C1A] border-transparent shadow-sm"
                       : "border-[#1A1A1A]/15 dark:border-white/15 text-[#1A1A1A]/60 dark:text-white/60 bg-[#1A1A1A]/5 dark:bg-white/5 hover:bg-[#1A1A1A]/10 dark:hover:bg-white/10 hover:border-[#1A1A1A]/40 dark:hover:border-white/40"
@@ -224,14 +224,27 @@ export default function ProjectPage() {
                         {"live_link_text" in project ? (project as any).live_link_text : "Live Demo ↗"}
                       </a>
                     )}
-                    <a
-                      href={project.project_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 border border-[#1A1A1A]/20 dark:border-white/20 text-[#1A1A1A] dark:text-[#E8E4D9] rounded-full hover:bg-[#1A1A1A] dark:hover:bg-white hover:text-[#D3CAB3] dark:hover:text-[#1C1C1A] hover:scale-[1.03] active:scale-95 transition-all duration-300 ease-out"
-                    >
-                      Code ↗
-                    </a>
+                    {(() => {
+                      let internalLink = project.project_link;
+                      let isInternal = false;
+                      if (project.project_link.startsWith('https://github.com/')) {
+                          const parts = project.project_link.replace('https://github.com/', '').split('/');
+                          if (parts.length >= 2) {
+                              internalLink = `/code/${parts[0]}/${parts[1]}`;
+                              isInternal = true;
+                          }
+                      }
+                      return (
+                        <Link
+                          href={internalLink}
+                          target={isInternal ? undefined : "_blank"}
+                          rel={isInternal ? undefined : "noopener noreferrer"}
+                          className="px-3.5 py-1.5 border border-[#1A1A1A]/20 dark:border-white/20 text-[#1A1A1A] dark:text-[#E8E4D9] rounded-full hover:bg-[#1A1A1A] dark:hover:bg-white hover:text-[#D3CAB3] dark:hover:text-[#1C1C1A] hover:scale-[1.03] active:scale-95 transition-all duration-300 ease-out"
+                        >
+                          Code ↗
+                        </Link>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>
@@ -297,14 +310,27 @@ export default function ProjectPage() {
                         {"live_link_text" in project ? (project as any).live_link_text : "Live Demo ↗"}
                       </a>
                     )}
-                    <a
-                      href={project.project_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 border border-[#1A1A1A]/20 dark:border-white/20 text-[#1A1A1A] dark:text-[#E8E4D9] rounded-full hover:bg-[#1A1A1A] dark:hover:bg-white hover:text-[#D3CAB3] dark:hover:text-[#1C1C1A] hover:scale-[1.03] active:scale-95 transition-all duration-300 ease-out"
-                    >
-                      Code ↗
-                    </a>
+                    {(() => {
+                      let internalLink = project.project_link;
+                      let isInternal = false;
+                      if (project.project_link.startsWith('https://github.com/')) {
+                          const parts = project.project_link.replace('https://github.com/', '').split('/');
+                          if (parts.length >= 2) {
+                              internalLink = `/code/${parts[0]}/${parts[1]}`;
+                              isInternal = true;
+                          }
+                      }
+                      return (
+                        <Link
+                          href={internalLink}
+                          target={isInternal ? undefined : "_blank"}
+                          rel={isInternal ? undefined : "noopener noreferrer"}
+                          className="px-3.5 py-1.5 border border-[#1A1A1A]/20 dark:border-white/20 text-[#1A1A1A] dark:text-[#E8E4D9] rounded-full hover:bg-[#1A1A1A] dark:hover:bg-white hover:text-[#D3CAB3] dark:hover:text-[#1C1C1A] hover:scale-[1.03] active:scale-95 transition-all duration-300 ease-out"
+                        >
+                          Code ↗
+                        </Link>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>

@@ -24,11 +24,18 @@ export default function ProjectCard({ id, proj_img, proj_name, description, proj
         window.open(live_link, "_blank", "noopener,noreferrer");
     };
 
+    // Convert github links to internal code viewer links
+    let internalLink = project_link;
+    if (project_link.startsWith('https://github.com/')) {
+        const parts = project_link.replace('https://github.com/', '').split('/');
+        if (parts.length >= 2) {
+            internalLink = `/code/${parts[0]}/${parts[1]}`;
+        }
+    }
+
     return (
         <Link
-            href={project_link}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={internalLink}
             className="group border border-[#1A1A1A]/15 dark:border-white/10 rounded-2xl bg-[#EAE4D3] hover:bg-[#DFD6C1] dark:bg-[#2A2A28] dark:hover:bg-[#333330] w-full overflow-hidden transition-all duration-300 ease-in-out cursor-pointer block hover:shadow-sm"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}

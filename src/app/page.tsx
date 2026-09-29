@@ -28,7 +28,7 @@ export default async function Home() {
       proj_name: "Gym Management System",
       description: "Full-stack SaaS-style fitness management platform for personal trainers. Features real-time chat, Google Calendar API integration, role-based authentication, dynamic workout planner, performance charts with E-1RM calculator, and meal plan management.",
       project_link: "https://github.com/Conceal34/personal-trainer-next",
-      live_link: "https://vinner-gym.netlify.app"
+      live_link: "https://gym.vinner.uk"
     },
     {
       id: "2",
