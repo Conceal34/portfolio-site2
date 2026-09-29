@@ -15,6 +15,8 @@ import tracker_proj from '../assets/job-tracker.png';
 
 import clientPromise from "../lib/mongodb";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const staticProjects = [
     {

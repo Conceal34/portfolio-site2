@@ -47,3 +47,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Failed to create project' }, { status: 500 })
   }
 }
+
+export async function PUT(request: Request) {
+  try {
+    const data = await request.json()
+    const { id, ...updateData } = data
+    
+    if (!id) {
+      return NextResponse.json({ error: 'Missing project id' }, { status: 400 })
+    }
+
+    const client = await clientPromise
+    const db = client.db('portfolio')
+    
+    updateData.updatedAt = new Date()
+
+    const result = await db.collection('projects').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: updateData }
+    )
+
+    return NextResponse.json({ success: true, modifiedCount: result.modifiedCount })
+  } catch (err) {
+    return NextResponse.json({ error: 'Failed to update project' }, { status: 500 })
+  }
+}

@@ -24,6 +24,8 @@ export default function AdminDashboard() {
   const [isAdding, setIsAdding] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   
+  const [editId, setEditId] = useState<string | null>(null)
+  
   // Form state
   const [formData, setFormData] = useState({
     proj_name: '',
@@ -35,6 +37,16 @@ export default function AdminDashboard() {
     tags: '',
     category: 'Full-Stack'
   })
+
+  const resetForm = () => {
+    setIsAdding(false)
+    setEditId(null)
+    setFormData({
+      proj_name: '', description: '', proj_img: '',
+      project_link: '', live_link: '', live_link_text: '',
+      tags: '', category: 'Full-Stack'
+    })
+  }
 
   const fetchProjects = async () => {
     setLoading(true)
@@ -61,32 +73,44 @@ export default function AdminDashboard() {
     router.refresh()
   }
 
+  const handleEdit = (project: Project) => {
+    setFormData({
+      proj_name: project.proj_name || '',
+      description: project.description || '',
+      proj_img: project.proj_img || '',
+      project_link: project.project_link || '',
+      live_link: project.live_link || '',
+      live_link_text: project.live_link_text || '',
+      tags: (project.tags || []).join(', '),
+      category: project.category || 'Full-Stack'
+    })
+    setEditId(project.id)
+    setIsAdding(true)
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitting(true)
     
     try {
-      const payload = {
+      const payload: any = {
         ...formData,
         tags: formData.tags.split(',').map(t => t.trim()).filter(Boolean)
       }
 
+      if (editId) payload.id = editId
+
       const res = await fetch('/api/projects', {
-        method: 'POST',
+        method: editId ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       })
 
       if (res.ok) {
-        setIsAdding(false)
-        setFormData({
-          proj_name: '', description: '', proj_img: '',
-          project_link: '', live_link: '', live_link_text: '',
-          tags: '', category: 'Full-Stack'
-        })
+        resetForm()
         fetchProjects()
       } else {
-        alert('Failed to add project')
+        alert('Failed to save project')
       }
     } catch (err) {
       alert('An error occurred')
@@ -107,7 +131,7 @@ export default function AdminDashboard() {
         </div>
         <div className="flex gap-3">
           <button 
-            onClick={() => setIsAdding(!isAdding)}
+            onClick={() => isAdding ? resetForm() : setIsAdding(true)}
             className="flex items-center gap-2 bg-[#4C4B40] dark:bg-[#E8E4D9] text-[#E8E4D9] dark:text-[#1A1A1A] px-4 py-2 rounded-full text-xs font-bold tracking-wider uppercase hover:opacity-90 transition-opacity"
           >
             {isAdding ? 'Cancel' : <><Plus className="w-4 h-4" /> Add Project</>}
@@ -124,7 +148,7 @@ export default function AdminDashboard() {
       <div className="flex-1 overflow-y-auto pt-6 no-scrollbar">
         {isAdding ? (
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto flex flex-col gap-5 bg-[#EAE4D3] dark:bg-[#2A2A28] p-6 rounded-2xl border border-[#1A1A1A]/10 dark:border-white/10">
-            <h2 className="font-playfair font-bold text-xl mb-2">New Project</h2>
+            <h2 className="font-playfair font-bold text-xl mb-2">{editId ? 'Edit Project' : 'New Project'}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="flex flex-col gap-1.5 text-xs font-medium">
@@ -175,7 +199,7 @@ export default function AdminDashboard() {
             </label>
 
             <button disabled={submitting} type="submit" className="mt-2 w-full bg-[#4C4B40] dark:bg-[#E8E4D9] text-[#E8E4D9] dark:text-[#1A1A1A] font-bold tracking-wider uppercase text-xs py-3.5 rounded-xl hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50">
-              {submitting ? 'Saving...' : 'Save Project'}
+              {submitting ? 'Saving...' : editId ? 'Update Project' : 'Save Project'}
             </button>
           </form>
         ) : loading ? (
@@ -195,10 +219,13 @@ export default function AdminDashboard() {
                   <span className="text-[9px] uppercase tracking-wider bg-[#1A1A1A]/10 dark:bg-white/10 px-2 py-0.5 rounded-full">{project.category}</span>
                 </div>
                 <p className="text-xs opacity-70 line-clamp-2">{project.description}</p>
-                <div className="mt-auto pt-3 flex flex-wrap gap-1">
-                  {project.tags?.map(tag => (
-                    <span key={tag} className="text-[9px] border border-[#1A1A1A]/20 dark:border-white/20 px-1.5 py-0.5 rounded-md">{tag}</span>
-                  ))}
+                <div className="mt-auto pt-3 flex flex-wrap gap-1 items-center justify-between">
+                  <div className="flex flex-wrap gap-1">
+                    {project.tags?.map(tag => (
+                      <span key={tag} className="text-[9px] border border-[#1A1A1A]/20 dark:border-white/20 px-1.5 py-0.5 rounded-md">{tag}</span>
+                    ))}
+                  </div>
+                  <button onClick={() => handleEdit(project)} className="text-[10px] font-bold uppercase hover:underline">Edit</button>
                 </div>
               </div>
             ))}

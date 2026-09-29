@@ -241,7 +241,7 @@ export default function ProjectPage() {
                         rel="noopener noreferrer"
                         className="px-3.5 py-1.5 bg-[#4C4B40] dark:bg-[#E8E4D9] text-[#E8E4D9] dark:text-[#1C1C1A] rounded-full hover:bg-[#3a3a30] dark:hover:bg-white hover:scale-[1.03] active:scale-95 transition-all duration-300 ease-out shadow-sm"
                       >
-                        {"live_link_text" in project ? (project as any).live_link_text : "Live Demo ↗"}
+                        {project.live_link_text || "LIVE DEMO"}
                       </a>
                     )}
                     {(() => {
@@ -327,7 +327,7 @@ export default function ProjectPage() {
                         rel="noopener noreferrer"
                         className="px-3.5 py-1.5 bg-[#4C4B40] dark:bg-[#E8E4D9] text-[#E8E4D9] dark:text-[#1C1C1A] rounded-full hover:bg-[#3a3a30] dark:hover:bg-white hover:scale-[1.03] active:scale-95 transition-all duration-300 ease-out shadow-sm"
                       >
-                        {"live_link_text" in project ? (project as any).live_link_text : "Live Demo ↗"}
+                        {project.live_link_text || "LIVE DEMO"}
                       </a>
                     )}
                     {(() => {
