@@ -196,7 +196,7 @@ export default async function Home() {
 
         {/* Projects section */}
         <div className="flex flex-col bg-[#D3CAB3] dark:bg-[#1C1C1A] text-[#1A1A1A] dark:text-[#E8E4D9] rounded-3xl p-4 lg:row-span-full lg:min-h-0 transition-colors duration-500">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3">
             <h1 className="text-base xl:text-xl font-playfair font-bold">Projects</h1>
             <div className="flex gap-2">
               <Link 
@@ -215,8 +215,8 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <div className="h-px bg-[#1A1A1A]/20 mb-6" />
-          <div className="flex flex-col gap-4 lg:overflow-y-auto no-scrollbar flex-1 lg:min-h-0">
+          <div className="h-px bg-[#1A1A1A]/10 dark:bg-white/10 mb-3" />
+          <div className="flex flex-col gap-3 lg:overflow-y-auto no-scrollbar flex-1 lg:min-h-0">
             {projects.map((project, index) => (
               <div key={project.id} className={index >= 5 ? "hidden lg:block" : "block"}>
                 <ProjectCard {...project} />
