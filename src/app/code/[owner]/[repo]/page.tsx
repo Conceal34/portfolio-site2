@@ -277,6 +277,8 @@ export default function CodeViewerPage() {
                               language={match[1]}
                               PreTag="div"
                               className="!m-0 !rounded-md"
+                              wrapLines={true}
+                              wrapLongLines={true}
                               {...props}
                             >
                               {String(children).replace(/\n$/, '')}
@@ -293,11 +295,13 @@ export default function CodeViewerPage() {
                     </ReactMarkdown>
                   </div>
                 ) : (
-                  <div className="text-sm rounded-lg overflow-hidden border border-[#1A1A1A]/10 dark:border-white/10">
+                  <div className="text-sm rounded-lg overflow-hidden border border-[#1A1A1A]/10 dark:border-white/10 w-full max-w-full">
                     <SyntaxHighlighter
                       language={getLanguage(selectedFile)}
                       style={vscDarkPlus as any}
                       showLineNumbers
+                      wrapLines={true}
+                      wrapLongLines={true}
                       lineNumberStyle={{ color: '#6e7681', paddingRight: '1.5rem', minWidth: '3rem', textAlign: 'right' }}
                       customStyle={{ margin: 0, padding: '1.5rem', background: '#1E1E1E', fontSize: '13px' }}
                     >

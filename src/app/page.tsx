@@ -13,8 +13,10 @@ import anpr_proj from '../assets/anpr.jpg';
 import flood_proj from '../assets/flood.png';
 import tracker_proj from '../assets/job-tracker.png';
 
+import clientPromise from "@/lib/mongodb";
+
 export default async function Home() {
-  const projects = [
+  const staticProjects = [
     {
       id: "0",
       proj_img: tracker_proj,
@@ -54,6 +56,25 @@ export default async function Home() {
       live_link_text: "Read Paper ↗"
     }
   ]
+
+  let projects = staticProjects;
+  try {
+    if (process.env.MONGODB_URI) {
+      const client = await clientPromise;
+      const db = client.db('portfolio');
+      const dbProjects = await db.collection('projects').find({}).sort({ order: 1, createdAt: -1 }).toArray();
+      if (dbProjects.length > 0) {
+        const formatted = dbProjects.map(p => ({
+          ...p,
+          id: p._id.toString(),
+          _id: undefined
+        }));
+        projects = [...formatted, ...staticProjects] as any;
+      }
+    }
+  } catch (err) {
+    console.error("Failed to load DB projects on home", err);
+  }
 
   // when we have blogs online, we can fetch them here and pass them to the blog section. For now, I'll just hardcode some dummy data to show how the blog section will look like once we have blogs to display.
   // const blogs = [{

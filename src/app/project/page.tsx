@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -11,7 +11,7 @@ import anpr_proj from '../../assets/anpr.jpg'
 import flood_proj from '../../assets/flood.png'
 import tracker_proj from '../../assets/job-tracker.png'
 
-const projectsList = [
+const staticProjectsList = [
   {
     id: "0",
     proj_img: tracker_proj,
@@ -63,9 +63,29 @@ const projectsList = [
 ]
 
 export default function ProjectPage() {
+  const [projectsList, setProjectsList] = useState<any[]>(staticProjectsList)
   const [filter, setFilter] = useState("All")
   const [isScrolled, setIsScrolled] = useState(false)
   const [viewMode, setViewMode] = useState<"list" | "grid">("list")
+
+  useEffect(() => {
+    async function fetchDBProjects() {
+      try {
+        const res = await fetch('/api/projects')
+        if (res.ok) {
+          const dbProjects = await res.json()
+          if (dbProjects && dbProjects.length > 0) {
+            // Merge DB projects with static projects (or just use DB projects).
+            // For now, we prepend DB projects to static projects.
+            setProjectsList([...dbProjects, ...staticProjectsList])
+          }
+        }
+      } catch (err) {
+        console.error("Could not load DB projects", err)
+      }
+    }
+    fetchDBProjects()
+  }, [])
 
   const categories = ["All", "Full-Stack", "DevOps", "AI / ML", "AI / ML & Research"]
 
