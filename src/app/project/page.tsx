@@ -222,7 +222,7 @@ export default function ProjectPage() {
                 <div className="flex flex-col gap-3.5 px-5 pb-5 pt-3 border-t border-[#1A1A1A]/5 mt-auto w-full">
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1">
-                    {project.tags.map((tag) => (
+                    {project.tags?.map((tag: string) => (
                       <span
                         key={tag}
                         className="bg-[#1A1A1A]/5 dark:bg-white/5 border border-[#1A1A1A]/10 dark:border-white/10 rounded-full px-2 py-0.5 text-[8px] font-mono text-[#1A1A1A]/60 dark:text-[#E8E4D9]/60 transition-colors"
@@ -308,7 +308,7 @@ export default function ProjectPage() {
                 <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-[#1A1A1A]/5">
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
+                    {project.tags?.map((tag: string) => (
                       <span
                         key={tag}
                         className="bg-[#1A1A1A]/5 dark:bg-white/5 border border-[#1A1A1A]/10 dark:border-white/10 rounded-full px-2.5 py-0.5 text-[9px] xl:text-[10px] font-mono text-[#1A1A1A]/60 dark:text-[#E8E4D9]/60 transition-colors"

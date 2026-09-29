@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import clientPromise from '@/lib/mongodb'
+import clientPromise from '../../../lib/mongodb'
 import { ObjectId } from 'mongodb'
 
 // Force dynamic so Next.js doesn't cache the API permanently

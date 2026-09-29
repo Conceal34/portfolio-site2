@@ -13,7 +13,7 @@ import anpr_proj from '../assets/anpr.jpg';
 import flood_proj from '../assets/flood.png';
 import tracker_proj from '../assets/job-tracker.png';
 
-import clientPromise from "@/lib/mongodb";
+import clientPromise from "../lib/mongodb";
 
 export default async function Home() {
   const staticProjects = [
