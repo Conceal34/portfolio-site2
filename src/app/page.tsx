@@ -116,9 +116,8 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Photo card */}
         <div className="relative rounded-3xl overflow-hidden h-64 lg:h-full lg:col-start-3 group">
-          <Image src={prof_photo} alt="Vinner's photo" className="object-cover w-full h-full object-top group-hover:scale-105 transition-transform duration-700 ease-out" fill />
+          <Image src={prof_photo} alt="Vinner's photo" className="object-cover w-full h-full object-top group-hover:scale-105 transition-transform duration-700 ease-out" fill priority />
         </div>
 
 
