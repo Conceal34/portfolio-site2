@@ -83,7 +83,7 @@ export default function ProjectCard({ id, proj_img, proj_name, description, proj
                         {live_link && (
                             <button
                                 onClick={handleLiveClick}
-                                className="text-[9px] xl:text-[10px] font-sans tracking-wider uppercase px-3 py-1 bg-[#1A1A1A] text-[#D3CAB3] rounded-full hover:bg-[#3a3a30] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer select-none"
+                                className="text-[9px] xl:text-[10px] font-sans tracking-wider uppercase px-3 py-2 bg-[#1A1A1A] text-[#D3CAB3] rounded-full hover:bg-[#3a3a30] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer select-none"
                             >
                                 {live_link_text || "LIVE DEMO"}
                             </button>
